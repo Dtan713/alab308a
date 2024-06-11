@@ -16,7 +16,7 @@ try {
 }
 
 
-const array = [1, 2, [3, 4], 5, [6, 7]]];
+const array = [1, 2, [3, 4], 5, [6, 7]];
 
 let newArr = [];
 
@@ -32,4 +32,11 @@ function flatten(index, arr) {
     return () => flatten(index + 1, arr);
 }
 
-
+const flattenedArray = flatten(0, myArr, []);
+console.log(flattenedArray);
+const trampoline = (f, ...args) => {
+    let result = f(...arg);
+    while (typeof result === "function") {
+        result = result();
+    }
+}
